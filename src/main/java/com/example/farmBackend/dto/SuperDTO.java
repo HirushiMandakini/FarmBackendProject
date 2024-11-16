@@ -1,4 +1,6 @@
 package com.example.farmBackend.dto;
 
-public interface SuperDTO {
+import java.io.Serializable;
+
+public interface SuperDTO extends Serializable {
 }
