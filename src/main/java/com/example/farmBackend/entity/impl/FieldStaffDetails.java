@@ -1,5 +1,6 @@
 package com.example.farmBackend.entity.impl;
 
+import com.example.farmBackend.entity.SuperEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import lombok.*;
 @ToString
 @Entity
 @Table(name = "fieldStaffDetails")
-public class FieldStaffDetails {
+public class FieldStaffDetails implements SuperEntity {
     @Id
     private Long id;
     private String assignedRole;

@@ -1,5 +1,6 @@
 package com.example.farmBackend.entity.impl;
 
+import com.example.farmBackend.entity.SuperEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -16,7 +17,7 @@ import java.util.List;
 @ToString(exclude = "staff")
 @Entity
 @Table(name = "vehicles")
-public class Vehicle {
+public class Vehicle implements SuperEntity {
     @Id
     private String vehicleCode;
     private String licensePlateNumber;

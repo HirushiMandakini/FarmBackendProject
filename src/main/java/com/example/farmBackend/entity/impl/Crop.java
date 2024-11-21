@@ -1,5 +1,6 @@
 package com.example.farmBackend.entity.impl;
 
+import com.example.farmBackend.entity.SuperEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +11,7 @@ import lombok.*;
 @ToString(exclude = "field")
 @Entity
 @Table(name = "crops")
-public class Crop {
+public class Crop implements SuperEntity {
     @Id
     private String cropCode;
     private String cropCommonName;

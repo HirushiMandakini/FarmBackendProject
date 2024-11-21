@@ -1,5 +1,6 @@
 package com.example.farmBackend.entity.impl;
 
+import com.example.farmBackend.entity.SuperEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import java.util.List;
 @ToString(exclude = {"fieldStaffDetails", "crops"})
 @Entity
 @Table(name = "fields")
-public class Field {
+public class Field implements SuperEntity {
     @Id
     private String fieldCode;
     private String fieldName;
