@@ -1,16 +1,16 @@
 package com.example.farmBackend.entity.impl;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"fieldStaffDetails", "crops"})
 @Entity
 @Table(name = "fields")
 public class Field {
@@ -23,5 +23,9 @@ public class Field {
     private String fieldImage1;
     @Column(columnDefinition = "LONGTEXT")
     private String fieldImage2;
+    @OneToMany(mappedBy = "field", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<FieldStaffDetails> fieldStaffDetails = new ArrayList<>();
+    @OneToMany(mappedBy = "field")
+    private List<Crop> crops = new ArrayList<>();
 
 }

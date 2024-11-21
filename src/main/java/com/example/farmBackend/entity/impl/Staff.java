@@ -1,19 +1,19 @@
 package com.example.farmBackend.entity.impl;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = {"vehicle", "fieldStaffDetails"})
 @Entity
-@Table(name = "staff")
+@Table(name = "staffs")
 public class Staff {
     @Id
     private String id;
@@ -27,6 +27,10 @@ public class Staff {
     private String role;
     private String contactNo;
     private String email;
-
+    @OneToMany(mappedBy = "staff", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<FieldStaffDetails> fieldStaffDetails = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "vehicleCode",nullable = false)
+    private Vehicle vehicle;
 
 }

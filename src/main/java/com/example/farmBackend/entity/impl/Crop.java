@@ -1,16 +1,13 @@
 package com.example.farmBackend.entity.impl;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
+@ToString(exclude = "field")
 @Entity
 @Table(name = "crops")
 public class Crop {
@@ -22,6 +19,9 @@ public class Crop {
     private String cropSeason;
     @Column(columnDefinition = "LONGTEXT")
     private String cropImage;
+    @ManyToOne
+    @JoinColumn(name = "fieldCode",nullable = false)
+    private Field field;
 
 
 }
