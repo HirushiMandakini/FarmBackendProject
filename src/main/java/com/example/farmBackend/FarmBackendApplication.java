@@ -7,16 +7,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.example.farmBackend")
 @EnableWebSecurity
 @EnableMethodSecurity
+
 public class FarmBackendApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(FarmBackendApplication.class, args);
 	}
 	@Bean
 	public ModelMapper mapper(){
+
 		return new ModelMapper();
 	}
 }
