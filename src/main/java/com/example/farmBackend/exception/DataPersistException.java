@@ -1,10 +1,10 @@
 package com.example.farmBackend.exception;
 
-public class DataPersistException extends RuntimeException{
+public class DataPersistException extends RuntimeException {
 
-    public DataPersistException() {
+    public DataPersistException(String message) {
 
     }
 
-
 }
+
