@@ -97,7 +97,7 @@ public class FieldController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PatchMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, value = "/{fieldCode}")
+    @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, value = "/{fieldCode}")
     public ResponseEntity<Void> updateSelectedField(
             @PathVariable("fieldCode") String fieldCode,
             @RequestParam(value = "fieldName", required = false) String fieldName,
