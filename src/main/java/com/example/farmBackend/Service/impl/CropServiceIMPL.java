@@ -6,6 +6,7 @@ import com.example.farmBackend.dao.FieldDAO;
 import com.example.farmBackend.dto.impl.CropDTO;
 import com.example.farmBackend.entity.impl.Crop;
 import com.example.farmBackend.entity.impl.Field;
+import com.example.farmBackend.exception.CropNotFoundException;
 import com.example.farmBackend.exception.DataPersistException;
 import com.example.farmBackend.util.Mapping;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -38,21 +41,47 @@ public class CropServiceIMPL implements CropService {
 
     @Override
     public List<CropDTO> getAllCrops() {
-        return null;
+        List<Crop> getAllcrops = cropDAO.findAll();
+        return mapping.convertToCropListDTO(getAllcrops);
     }
 
     @Override
     public void deleteCrop(String cropCode) {
-
+        Optional<Crop> selectedCrop = cropDAO.findById(cropCode);
+        if(!selectedCrop.isPresent()){
+            throw new CropNotFoundException(cropCode);
+        } else {
+            cropDAO.deleteById(cropCode);
+        }
     }
 
     @Override
     public void updateCrop(String cropCode, CropDTO cropDTO) {
+        Crop existingCrop = cropDAO.findById(cropCode)
+                .orElseThrow(() -> new CropNotFoundException(cropCode));
 
+        if (cropDTO.getCropCommonName() != null) {
+            existingCrop.setCropCommonName(cropDTO.getCropCommonName());
+        }
+        if (cropDTO.getCropScientificName() != null) {
+            existingCrop.setCropScientificName(cropDTO.getCropScientificName());
+        }
+        if (cropDTO.getCategory() != null) {
+            existingCrop.setCategory(cropDTO.getCategory());
+        }
+        if (cropDTO.getCropSeason() != null) {
+            existingCrop.setCropSeason(cropDTO.getCropSeason());
+        }
+        if (cropDTO.getCropImage() != null) {
+            existingCrop.setCropImage(cropDTO.getCropImage());
+        }
+        cropDAO.save(existingCrop);
     }
+
 
     @Override
     public List<CropDTO> searchCrop(String searchTerm) {
-        return null;
+        List<Crop> crops = cropDAO.findByCropCodeOrCropCommonName(searchTerm, searchTerm);
+        return mapping.convertToCropListDTO(crops);
     }
 }
