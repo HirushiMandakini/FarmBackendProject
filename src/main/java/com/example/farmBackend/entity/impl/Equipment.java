@@ -22,6 +22,6 @@ public class Equipment implements SuperEntity {
     @JoinColumn(name = "fieldCode", nullable = false)
     private Field field;
     @ManyToOne
-    @JoinColumn(name = "staffId", nullable = false)
+    @JoinColumn(name = "id", nullable = false)
     private Staff staff;
 }
