@@ -77,7 +77,6 @@ public class FieldServiceIMPL implements FieldService {
             fieldDAO.deleteById(fieldCode);
         }
     }
-
     @Override
     public List<FieldDTO> getAllFields() {
         List<Field> getAllFields = fieldDAO.findAll();

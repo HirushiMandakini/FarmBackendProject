@@ -1,8 +1,10 @@
 package com.example.farmBackend.util;
 
 import com.example.farmBackend.dto.impl.CropDTO;
+import com.example.farmBackend.dto.impl.EquipmentDTO;
 import com.example.farmBackend.dto.impl.FieldDTO;
 import com.example.farmBackend.entity.impl.Crop;
+import com.example.farmBackend.entity.impl.Equipment;
 import com.example.farmBackend.entity.impl.Field;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,14 +21,11 @@ public class Mapping {
 
     //fields matters mapping
     public FieldDTO convertToFieldDTO(Field field) {
-
         return modelMapper.map(field, FieldDTO.class);
     }
 
     public Field convertToFieldEntity(FieldDTO fieldDTO) {
-
         return modelMapper.map(fieldDTO, Field.class);
-
     }
 
     public List<FieldDTO> convertToFieldListDTO(List<Field> fieldList) {
@@ -45,6 +44,18 @@ public class Mapping {
 
     public List<CropDTO> convertToCropListDTO(List<Crop> crops) {
         return modelMapper.map(crops, new TypeToken<List<CropDTO>>() {
+        }.getType());
+    }
+    //equipment matters mapping
+    public EquipmentDTO convertToEquipmentDTO(Equipment equipment){
+        return modelMapper.map(equipment, EquipmentDTO.class);
+    }
+    public Field convertToEquipmentEntity(FieldDTO fieldDTO) {
+        return modelMapper.map(fieldDTO, Field.class);
+    }
+
+    public List<FieldDTO> convertToEquipmentListDTO(List<Field> fieldList) {
+        return modelMapper.map(fieldList, new TypeToken<List<FieldDTO>>() {
         }.getType());
     }
 
