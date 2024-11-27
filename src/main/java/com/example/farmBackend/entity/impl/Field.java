@@ -28,5 +28,7 @@ public class Field implements SuperEntity {
     private List<FieldStaffDetails> fieldStaffDetails = new ArrayList<>();
     @OneToMany(mappedBy = "field")
     private List<Crop> crops = new ArrayList<>();
+    @OneToMany(mappedBy = "field")
+    private List<Equipment> equipmentList = new ArrayList<>();
 
 }

@@ -33,5 +33,10 @@ public class Staff implements SuperEntity {
     @ManyToOne
     @JoinColumn(name = "vehicleCode",nullable = false)
     private Vehicle vehicle;
+    @OneToMany(mappedBy = "staff")
+    private List<Equipment> equipmentList = new ArrayList<>();
+    @OneToMany(mappedBy = "staff")
+    private List<Field> fieldList = new ArrayList<>();
+
 
 }

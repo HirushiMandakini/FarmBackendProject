@@ -2,6 +2,7 @@ package com.example.farmBackend.controller;
 
 import com.example.farmBackend.Service.CropService;
 import com.example.farmBackend.customObj.CropErrorResponse;
+import com.example.farmBackend.customObj.CropResponse;
 import com.example.farmBackend.dto.impl.CropDTO;
 import com.example.farmBackend.exception.CropNotFoundException;
 import com.example.farmBackend.exception.DataPersistException;
@@ -84,7 +85,7 @@ public class CropController {
         }
     }
 
-    @PatchMapping(value = "/{cropCode}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PutMapping(value = "/{cropCode}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> updateSelectedCrop(
             @PathVariable("cropCode") String cropCode,
             @RequestParam(value = "cropCommonName", required = false) String cropCommonName,
