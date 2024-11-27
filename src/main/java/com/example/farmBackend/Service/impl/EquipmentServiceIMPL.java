@@ -48,16 +48,12 @@ public class EquipmentServiceIMPL implements EquipmentService {
             e.printStackTrace();
         }
     }
-
     @Override
-    public EquipmentDTO getSelectedEquipment(String equipmentId) {
-        if (equipmentDAO.existsById(equipmentId)) {
-            Equipment equipment = equipmentDAO.getReferenceById(equipmentId);
-            return mapping.convertToEquipmentDTO(equipment);
-        } else {
-            return new EquipmentDTO();
-        }
+    public List<EquipmentDTO> searchEquipment(String searchTerm) {
+        List<Equipment> equipments = equipmentDAO.findByEquipmentIdOrEquipmentName(searchTerm, searchTerm);
+        return mapping.convertToEquipmentListDTO(equipments);
     }
+
 
     @Override
     public void updateEquipment(String equipmentId, EquipmentDTO equipmentDTO) {
