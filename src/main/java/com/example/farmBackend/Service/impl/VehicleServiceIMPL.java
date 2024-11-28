@@ -5,6 +5,7 @@ import com.example.farmBackend.dao.VehicleDAO;
 import com.example.farmBackend.dto.impl.VehicleDTO;
 import com.example.farmBackend.entity.impl.Vehicle;
 import com.example.farmBackend.exception.DataPersistException;
+import com.example.farmBackend.exception.VehicleNotFoundException;
 import com.example.farmBackend.util.Mapping;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -27,21 +28,43 @@ public class VehicleServiceIMPL implements VehicleService {
 
     @Override
     public List<VehicleDTO> getAllVehicles() {
-        return null;
+        List<Vehicle> allVehicles = vehicleDAO.findAll();
+        return mapping.convertToVehicleListDTO(allVehicles);
     }
 
     @Override
     public List<VehicleDTO> searchVehicles(String searchTerm) {
-        return null;
+        List<Vehicle> vehicles = vehicleDAO.findByVehicleCodeOrLicensePlate(searchTerm);
+        return mapping.convertToVehicleListDTO(vehicles);
     }
 
     @Override
     public void deleteVehicle(String vehicleCode) {
-
+        if (!vehicleDAO.existsById(vehicleCode)) {
+            throw new VehicleNotFoundException("Vehicle not found with code: " + vehicleCode);
+        }
+        vehicleDAO.deleteById(vehicleCode);
     }
 
     @Override
     public void updateVehicle(String vehicleCode, VehicleDTO vehicleDTO) {
-
+        Vehicle existingVehicle = vehicleDAO.findById(vehicleCode)
+                .orElseThrow(() -> new VehicleNotFoundException("Vehicle not found with code: " + vehicleCode));
+        if (vehicleDTO.getLicensePlateNumber() != null) {
+            existingVehicle.setLicensePlateNumber(vehicleDTO.getLicensePlateNumber());
+        }
+        if (vehicleDTO.getVehicleCategory() != null) {
+            existingVehicle.setVehicleCategory(vehicleDTO.getVehicleCategory());
+        }
+        if (vehicleDTO.getFuelType() != null) {
+            existingVehicle.setFuelType(vehicleDTO.getFuelType());
+        }
+        if (vehicleDTO.getStatus() != null) {
+            existingVehicle.setStatus(vehicleDTO.getStatus());
+        }
+        if (vehicleDTO.getRemarks() != null) {
+            existingVehicle.setRemarks(vehicleDTO.getRemarks());
+        }
+        vehicleDAO.save(existingVehicle);
     }
 }
