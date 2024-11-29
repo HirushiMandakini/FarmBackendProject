@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 public class Mapping {
     @Autowired
@@ -74,5 +76,23 @@ public class Mapping {
     }
     public List<VehicleDTO> convertToVehicleListDTO(List<Vehicle> vehicles) {
         return modelMapper.map(vehicles, new TypeToken<List<VehicleDTO>>() {}.getType());
+    }
+    //monitoringLog matters mapping
+    public MonitoringLogDTO convertToMonitoringLogDTO(MonitoringLog monitoringLog) {
+        return modelMapper.map(monitoringLog, MonitoringLogDTO.class);
+    }
+
+    public MonitoringLog convertToMonitoringLog(MonitoringLogDTO monitoringLogDTO) {
+        return modelMapper.map(monitoringLogDTO, MonitoringLog.class);
+    }
+
+    public List<MonitoringLogDTO> convertToMonitoringLogListDTO(List<MonitoringLog> monitoringLogs) {
+        return monitoringLogs.stream().map(log -> {
+            MonitoringLogDTO monitoringLogDTO = modelMapper.map(log, MonitoringLogDTO.class);
+            monitoringLogDTO.setFieldCode(log.getField().getFieldCode());
+            monitoringLogDTO.setCropCode(log.getCrop().getCropCode());
+            monitoringLogDTO.setId(log.getStaff().getId());
+            return monitoringLogDTO;
+        }).collect(Collectors.toList());
     }
 }
