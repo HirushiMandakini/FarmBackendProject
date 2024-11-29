@@ -39,8 +39,8 @@ public class Staff implements SuperEntity {
     private Vehicle vehicle;
     @OneToMany(mappedBy = "staff")
     private List<Equipment> equipmentList = new ArrayList<>();
-    @OneToMany(mappedBy = "staff")
-    private List<Field> fieldList = new ArrayList<>();
+//    @OneToMany(mappedBy = "staff")
+//    private List<Field> fieldList = new ArrayList<>();
 
 
 }

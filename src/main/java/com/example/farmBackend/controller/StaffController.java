@@ -55,7 +55,7 @@ public class StaffController {
     }
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
-    @PatchMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateSelectedMember(
             @PathVariable("id") String id,
             @RequestBody StaffDTO staffDTO
@@ -78,7 +78,7 @@ public class StaffController {
     }
 
     @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
-    @PatchMapping(value = "/{id}/return-vehicle")
+    @PutMapping(value = "/{id}/return-vehicle")
     public ResponseEntity<Void> returnVehicle(@PathVariable("id") String staffId) {
         try {
             staffService.returnVehicle(staffId);

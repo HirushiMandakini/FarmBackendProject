@@ -14,12 +14,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 public class FarmBackendApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(FarmBackendApplication.class, args);
 	}
 	@Bean
 	public ModelMapper mapper(){
-
 		return new ModelMapper();
 	}
 }

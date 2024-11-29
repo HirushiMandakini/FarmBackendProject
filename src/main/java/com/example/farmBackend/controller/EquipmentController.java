@@ -65,7 +65,7 @@ public class EquipmentController {
     }
 
 //    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
-    @PatchMapping(value = "/{equipmentId}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/{equipmentId}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateSelectedEquipment(@PathVariable("equipmentId") String equipmentId,
                                                         @RequestBody EquipmentDTO equipmentDTO) {
         try {
