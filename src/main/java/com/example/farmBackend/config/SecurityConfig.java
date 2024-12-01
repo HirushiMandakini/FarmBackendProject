@@ -1,7 +1,7 @@
-package org.example.cropmonitoringsystembackend.config;
+package com.example.farmBackend.config;
 
+import com.example.farmBackend.Service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.example.cropmonitoringsystembackend.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

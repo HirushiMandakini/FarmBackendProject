@@ -1,12 +1,13 @@
-package org.example.cropmonitoringsystembackend.config;
+package com.example.farmBackend.config;
 
+import com.example.farmBackend.Service.JWTService;
+import com.example.farmBackend.Service.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import org.example.cropmonitoringsystembackend.service.JWTService;
-import org.example.cropmonitoringsystembackend.service.UserService;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
