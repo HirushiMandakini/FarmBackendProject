@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static org.yaml.snakeyaml.nodes.NodeId.mapping;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -26,23 +28,38 @@ public class StaffServiceIMPL implements StaffService {
     private final StaffDAO staffDAO;
     private final VehicleDAO vehicleDAO;
     private final Mapping mapping;
-    @Override
-    public void saveStaff(StaffDTO staffDTO) {
-        Vehicle vehicle = vehicleDAO.findById(staffDTO.getVehicleCode())
-                .orElseThrow(() -> new DataPersistException("Invalid Vehicle code"));
-
-        if ("out of service".equalsIgnoreCase(vehicle.getStatus())) {
-            throw new DataPersistException("The selected vehicle is not available");
-        }
-        Staff staff = mapping.convertToStaff(staffDTO);
-        staff.setVehicle(vehicle);
-        Staff savedStaff = staffDAO.save(staff);
+//    @Override
+//    public void saveStaff(StaffDTO staffDTO) {
+//        Vehicle vehicle = vehicleDAO.findById(staffDTO.getVehicleCode())
+//                .orElseThrow(() -> new DataPersistException("Invalid Vehicle code"));
+//
+//        if ("out of service".equalsIgnoreCase(vehicle.getStatus())) {
+//            throw new DataPersistException("The selected vehicle is not available");
+//        }
+//        Staff staff = mapping.convertToStaff(staffDTO);
+//        staff.setVehicle(vehicle);
+//        Staff savedStaff = staffDAO.save(staff);
+//        if (savedStaff == null) {
+//            throw new DataPersistException("Can't save Staff");
+//        }
+//        vehicle.setStatus("Out of service");
+//        vehicleDAO.save(vehicle);
+//    }
+@Override
+public void saveStaff(StaffDTO staffDTO) {
+    Vehicle vehicle = vehicleDAO.findById(staffDTO.getVehicleCode())
+            .orElseThrow(() -> new DataPersistException("Invalid Vehicle code"));
+    Staff staff = mapping.convertToStaff(staffDTO);
+    staff.setVehicle(vehicle);
+    Staff savedStaff = staffDAO.save(staff);
+    try {
         if (savedStaff == null) {
             throw new DataPersistException("Can't save Staff");
         }
-        vehicle.setStatus("Out of service");
-        vehicleDAO.save(vehicle);
+    } catch (DataPersistException e) {
+        e.printStackTrace();
     }
+}
 
     @Override
     public List<StaffDTO> getAllStaffs() {

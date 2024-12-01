@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString(exclude = {"vehicle", "fieldStaffDetails"})
+@ToString(exclude = {"vehicle", "fieldStaffDetails","equipmentList"})
 @Entity
 @Table(name = "staffs")
 public class Staff implements SuperEntity {
