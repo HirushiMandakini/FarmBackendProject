@@ -1,15 +1,15 @@
-package org.example.cropmonitoringsystembackend.service.impl;
+package com.example.farmBackend.Service.impl;
 
+import com.example.farmBackend.Service.AuthenticationService;
+import com.example.farmBackend.Service.JWTService;
+import com.example.farmBackend.auth.request.SignInRequest;
+import com.example.farmBackend.auth.request.SignUpRequest;
+import com.example.farmBackend.auth.response.JWTAuthResponse;
+import com.example.farmBackend.dao.SecurityDAO;
+import com.example.farmBackend.dao.UserDAO;
+import com.example.farmBackend.dto.impl.UserDTO;
+import com.example.farmBackend.entity.impl.User;
 import lombok.RequiredArgsConstructor;
-import org.example.cropmonitoringsystembackend.auth.request.SignInRequest;
-import org.example.cropmonitoringsystembackend.auth.request.SignUpRequest;
-import org.example.cropmonitoringsystembackend.auth.response.JWTAuthResponse;
-import org.example.cropmonitoringsystembackend.dao.SecurityDAO;
-import org.example.cropmonitoringsystembackend.dao.UserDAO;
-import org.example.cropmonitoringsystembackend.dto.impl.UserDTO;
-import org.example.cropmonitoringsystembackend.entity.impl.User;
-import org.example.cropmonitoringsystembackend.service.AuthenticationService;
-import org.example.cropmonitoringsystembackend.service.JWTService;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
