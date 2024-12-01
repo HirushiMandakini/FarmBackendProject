@@ -1,13 +1,12 @@
-package org.example.cropmonitoringsystembackend.service.impl;
+package com.example.farmBackend.Service.impl;
 
-import lombok.RequiredArgsConstructor;
-import org.example.cropmonitoringsystembackend.dao.UserDAO;
-import org.example.cropmonitoringsystembackend.dto.impl.UserDTO;
-import org.example.cropmonitoringsystembackend.entity.impl.User;
-import org.example.cropmonitoringsystembackend.exception.DublicateRecordException;
-import org.example.cropmonitoringsystembackend.exception.NotFoundException;
-import org.example.cropmonitoringsystembackend.service.UserService;
-import org.example.cropmonitoringsystembackend.util.Role;
+import com.example.farmBackend.Service.UserService;
+import com.example.farmBackend.dao.UserDAO;
+import com.example.farmBackend.dto.impl.UserDTO;
+import com.example.farmBackend.entity.impl.User;
+import com.example.farmBackend.exception.DublicateRecordException;
+import com.example.farmBackend.exception.NotFoundException;
+import com.example.farmBackend.util.Role;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
