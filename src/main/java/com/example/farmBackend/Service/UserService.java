@@ -1,7 +1,7 @@
-package org.example.cropmonitoringsystembackend.service;
+package com.example.farmBackend.Service;
 
-import org.example.cropmonitoringsystembackend.dto.impl.UserDTO;
-import org.example.cropmonitoringsystembackend.util.Role;
+import com.example.farmBackend.dto.impl.UserDTO;
+import com.example.farmBackend.util.Role;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
