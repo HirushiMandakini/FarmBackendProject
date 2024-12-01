@@ -12,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,6 +24,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://127.0.0.1:5500")
 public class FieldController {
     private final FieldService fieldService;
+    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
 
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> saveField(
@@ -85,6 +87,7 @@ public class FieldController {
     public FieldResponse getSelectedField(@PathVariable("code") String code) {
         return fieldService.getSelectedField(code);
     }
+    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
 
     @DeleteMapping(value = "/{code}")
     public ResponseEntity<Void> deleteSelectedField(@PathVariable("code") String code) {
@@ -97,6 +100,8 @@ public class FieldController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
+
     @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, value = "/{fieldCode}")
     public ResponseEntity<Void> updateSelectedField(
             @PathVariable("fieldCode") String fieldCode,

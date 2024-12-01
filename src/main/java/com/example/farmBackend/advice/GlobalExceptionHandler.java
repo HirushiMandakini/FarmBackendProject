@@ -1,6 +1,6 @@
 package com.example.farmBackend.advice;
 
-import com.example.farmBackend.exception.DublicateRecordException;
+import com.example.farmBackend.exception.DuplicateRecordException;
 import com.example.farmBackend.exception.NotFoundException;
 import com.example.farmBackend.exception.ServiceException;
 import org.springframework.http.HttpStatus;
@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ServiceException.class)
     public ResponseEntity<Map<String,Object>> handleServiceExecption(ServiceException exp){
         Map<String,Object> errorAttribute;
-        if(exp instanceof DublicateRecordException){
+        if(exp instanceof DuplicateRecordException){
             errorAttribute = getCommonError(HttpStatus.CONFLICT);
         }else if(exp instanceof NotFoundException){
             errorAttribute = getCommonError(HttpStatus.NOT_FOUND);

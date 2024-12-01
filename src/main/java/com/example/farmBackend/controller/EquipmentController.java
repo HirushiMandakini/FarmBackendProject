@@ -22,7 +22,7 @@ import java.util.List;
 public class EquipmentController {
     private final EquipmentService equipmentService;
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> saveEquipment(@RequestBody EquipmentDTO equipment) {
         if (equipment == null) {
@@ -51,7 +51,7 @@ public class EquipmentController {
     }
 
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteSelectedCrop(@PathVariable("id") String id) {
         try {
@@ -64,7 +64,7 @@ public class EquipmentController {
         }
     }
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
     @PutMapping(value = "/{equipmentId}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateSelectedEquipment(@PathVariable("equipmentId") String equipmentId,
                                                         @RequestBody EquipmentDTO equipmentDTO) {

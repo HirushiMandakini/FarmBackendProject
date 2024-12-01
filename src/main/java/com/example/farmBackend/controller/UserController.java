@@ -1,9 +1,9 @@
-package org.example.cropmonitoringsystembackend.controller;
+package com.example.farmBackend.controller;
 
+import com.example.farmBackend.Service.UserService;
+import com.example.farmBackend.dto.impl.UserDTO;
+import com.example.farmBackend.util.Role;
 import jakarta.validation.Valid;
-import org.example.cropmonitoringsystembackend.dto.impl.UserDTO;
-import org.example.cropmonitoringsystembackend.service.UserService;
-import org.example.cropmonitoringsystembackend.util.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

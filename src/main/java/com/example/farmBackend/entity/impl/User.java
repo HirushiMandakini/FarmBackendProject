@@ -32,7 +32,6 @@ public class User implements SuperEntity, UserDetails {
                 "ROLE_"+role.name()));
         return authorities;
     }
-
     @Override
     public String getUsername() {
         return email;

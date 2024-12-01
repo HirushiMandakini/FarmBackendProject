@@ -22,7 +22,7 @@ public class VehicleController {
     @Autowired
     private final VehicleService vehicleService;
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> saveVehicle(@RequestBody VehicleDTO vehicleDTO) {
         try {
@@ -40,7 +40,7 @@ public class VehicleController {
         return vehicleService.getAllVehicles();
     }
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
     @DeleteMapping(value = "/{code}")
     public ResponseEntity<Void> deleteSelectedVehicle(@PathVariable("code") String code) {
         try {
@@ -60,7 +60,7 @@ public class VehicleController {
         return new ResponseEntity<>(vehicleDTOS, HttpStatus.OK);
     }
 
-//    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'ADMINISTRATIVE')")
     @PutMapping (value = "/{vehicleCode}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> updateSelectedVehicle(
             @PathVariable("vehicleCode") String vehicleCode,

@@ -24,6 +24,8 @@ import java.util.List;
 public class MonitoringLogController {
     private final MonitoringLogService monitoringLogService;
 
+    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
+
     // POST Method: Save Monitoring Log with Image Upload
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> saveMonitoringLog(
@@ -76,7 +78,7 @@ public class MonitoringLogController {
     }
 
     // PUT Method: Update Monitoring Log
-//    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
     @PutMapping(value = "/{logCode}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> updateMonitoringLog(
             @PathVariable("logCode") String logCode,
@@ -110,7 +112,7 @@ public class MonitoringLogController {
     }
 
     // DELETE Method: Delete Monitoring Log
-//    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
+    @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
     @DeleteMapping(value = "/{logCode}")
     public ResponseEntity<Void> deleteMonitoringLog(@PathVariable("logCode") String logCode) {
         try {

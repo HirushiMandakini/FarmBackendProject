@@ -1,10 +1,11 @@
-package org.example.cropmonitoringsystembackend.controller;
+package com.example.farmBackend.controller;
 
+import com.example.farmBackend.Service.AuthenticationService;
+import com.example.farmBackend.auth.request.SignInRequest;
+import com.example.farmBackend.auth.request.SignUpRequest;
+import com.example.farmBackend.auth.response.JWTAuthResponse;
 import lombok.RequiredArgsConstructor;
-import org.example.cropmonitoringsystembackend.auth.request.SignInRequest;
-import org.example.cropmonitoringsystembackend.auth.request.SignUpRequest;
-import org.example.cropmonitoringsystembackend.auth.response.JWTAuthResponse;
-import org.example.cropmonitoringsystembackend.service.AuthenticationService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

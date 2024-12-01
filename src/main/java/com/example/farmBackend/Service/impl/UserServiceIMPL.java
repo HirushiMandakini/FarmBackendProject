@@ -4,7 +4,7 @@ import com.example.farmBackend.Service.UserService;
 import com.example.farmBackend.dao.UserDAO;
 import com.example.farmBackend.dto.impl.UserDTO;
 import com.example.farmBackend.entity.impl.User;
-import com.example.farmBackend.exception.DublicateRecordException;
+import com.example.farmBackend.exception.DuplicateRecordException;
 import com.example.farmBackend.exception.NotFoundException;
 import com.example.farmBackend.util.Role;
 import org.modelmapper.ModelMapper;
@@ -53,7 +53,7 @@ public class UserServiceIMPL implements UserService {
     @Override
     public UserDTO saveUser(UserDTO userDTO) {
         if (userDAO.existsByEmail(userDTO.getEmail())) {
-            throw new DublicateRecordException("This User " + userDTO.getEmail() + " already have an account.");
+            throw new DuplicateRecordException("This User " + userDTO.getEmail() + " already have an account.");
         }
         return modelMapper.map(userDAO.save(modelMapper.map(
                 userDTO, User.class)), UserDTO.class
