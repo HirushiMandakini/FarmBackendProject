@@ -1,8 +1,9 @@
-package org.example.cropmonitoringsystembackend.service;
+package com.example.farmBackend.Service;
 
-import org.example.cropmonitoringsystembackend.auth.request.SignInRequest;
-import org.example.cropmonitoringsystembackend.auth.request.SignUpRequest;
-import org.example.cropmonitoringsystembackend.auth.response.JWTAuthResponse;
+
+import com.example.farmBackend.auth.request.SignInRequest;
+import com.example.farmBackend.auth.request.SignUpRequest;
+import com.example.farmBackend.auth.response.JWTAuthResponse;
 
 public interface AuthenticationService {
     JWTAuthResponse signIn(SignInRequest signInRequest);
