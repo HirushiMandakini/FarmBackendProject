@@ -1,4 +1,4 @@
-package org.example.cropmonitoringsystembackend.exception;
+package com.example.farmBackend.exception;
 
 public class NotFoundException extends ServiceException {
     public NotFoundException(String message) {
