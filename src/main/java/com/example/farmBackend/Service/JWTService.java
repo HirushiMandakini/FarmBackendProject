@@ -1,7 +1,7 @@
-package org.example.cropmonitoringsystembackend.service;
+package com.example.farmBackend.Service;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
-
 public interface JWTService {
     String extractUserName(String token);
     String generateToken(UserDetails userDetails);
