@@ -1,4 +1,4 @@
-package org.example.cropmonitoringsystembackend.auth.response;
+package com.example.farmBackend.auth.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

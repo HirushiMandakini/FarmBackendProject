@@ -1,10 +1,10 @@
-package org.example.cropmonitoringsystembackend.auth.request;
+package com.example.farmBackend.auth.request;
 
+import com.example.farmBackend.util.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.example.cropmonitoringsystembackend.util.Role;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
