@@ -1,11 +1,12 @@
-package org.example.cropmonitoringsystembackend.dao;
+package com.example.farmBackend.dao;
 
-import org.example.cropmonitoringsystembackend.entity.impl.User;
-import org.example.cropmonitoringsystembackend.util.Role;
+import com.example.farmBackend.entity.impl.User;
+import com.example.farmBackend.util.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
+
 @Repository
 public interface UserDAO extends JpaRepository<User,String> {
     Boolean existsByEmail(String email);
