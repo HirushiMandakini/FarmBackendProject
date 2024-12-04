@@ -1,5 +1,4 @@
 package com.example.farmBackend.entity.impl;
-
 import com.example.farmBackend.entity.SuperEntity;
 import com.example.farmBackend.util.Role;
 import jakarta.persistence.*;

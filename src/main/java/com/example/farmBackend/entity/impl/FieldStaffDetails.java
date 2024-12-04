@@ -13,6 +13,7 @@ import lombok.*;
 @Table(name = "fieldStaffDetails")
 public class FieldStaffDetails implements SuperEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String assignedRole;
     private String assignmentDate;

@@ -25,7 +25,6 @@ import java.util.List;
 public class FieldController {
     private final FieldService fieldService;
     @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
-
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> saveField(
             @RequestParam("fieldCode") String fieldCode,
@@ -88,7 +87,6 @@ public class FieldController {
         return fieldService.getSelectedField(code);
     }
     @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
-
     @DeleteMapping(value = "/{code}")
     public ResponseEntity<Void> deleteSelectedField(@PathVariable("code") String code) {
         try {
@@ -101,7 +99,6 @@ public class FieldController {
         }
     }
     @PreAuthorize("hasAnyRole('MANAGER', 'SCIENTIST')")
-
     @PutMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE, value = "/{fieldCode}")
     public ResponseEntity<Void> updateSelectedField(
             @PathVariable("fieldCode") String fieldCode,
