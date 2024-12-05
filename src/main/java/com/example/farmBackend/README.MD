@@ -143,21 +143,14 @@ Design your tables for clear relationships between entities like crops, fields, 
 
 ## API Documentation
 Full API documentation is available via Postman:
-- [Postman API Documentation](https://documenter.getpostman.com/view/xxxx/xxxx)
+- [Postman API Documentation](https://documenter.getpostman.com/view/35385607/2sAYBbco3t)
 
-
-
-2. **Deploy on Cloud:**
-    - **AWS EC2:** Set up an EC2 instance and deploy the JAR.
-    - **Heroku:** Use Heroku CLI to deploy.
-
----
 
 ## License
-This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+This project is licensed under the ****. See the [LICENSE](https://github.com/HirushiMandakini/FarmBackendProject/blob/main/src/main/java/com/example/farmBackend/License.txt) file for details.
 
 ---
 
 ## Author
 **Mandakini Mendis**  
-For inquiries, contact via [GitHub](https://github.com/Mandakini-Mendis) or email.
+For inquiries, contact via [GitHub](https://github.com/Mandakini-Mendis) or hirushimandakinimendis@gmail.com .
