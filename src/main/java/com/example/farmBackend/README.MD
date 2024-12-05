@@ -147,7 +147,7 @@ Full API documentation is available via Postman:
 
 
 ## License
-This project is licensed under the ****. See the [LICENSE](https://github.com/HirushiMandakini/FarmBackendProject/blob/main/src/main/java/com/example/farmBackend/License.txt) file for details.
+This project is licensed under the ****. See the [MIT](https://github.com/HirushiMandakini/FarmBackendProject/blob/main/src/main/java/com/example/farmBackend/License.txt) file for details.
 
 ---
 
